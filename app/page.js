@@ -19,9 +19,9 @@ export default function Home() {
               Manage Movies
             </button>
           </Link>
-          <Link href="/viewing">
+          <Link href="/cinema-viewing">
             <button className="w-full py-2 rounded text-white bg-[#2c5364] hover:opacity-90">
-              Manage Viewings
+              Manage cinema screenings
             </button>
           </Link>
           <Link href="/reservation">
