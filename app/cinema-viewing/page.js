@@ -24,7 +24,6 @@ export default function CinemaViewingPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-
     const formattedForm = {
       MovieId: parseInt(form.MovieId),
       SalonId: parseInt(form.SalonId),
@@ -63,6 +62,14 @@ export default function CinemaViewingPage() {
 
   return (
     <div className="min-h-screen p-8 sm:p-20 bg-white text-black dark:bg-[#121212] dark:text-white">
+      <div className="mb-4">
+        <Link href="/">
+          <button className="bg-[#2c5364] text-white py-2 px-4 rounded hover:opacity-90">
+            Back to Home
+          </button>
+        </Link>
+      </div>
+
       <h1 className="text-2xl font-bold mb-8">cinema screenings</h1>
 
       <form onSubmit={handleSubmit} className="mb-10 grid gap-4 max-w-md">
@@ -76,7 +83,7 @@ export default function CinemaViewingPage() {
         />
         <input
           type="number"
-          placeholder="Salon ID"
+          placeholder="Available Salon"
           value={form.SalonId}
           onChange={(e) => setForm({ ...form, SalonId: e.target.value })}
           className="p-2 border rounded"
@@ -101,7 +108,7 @@ export default function CinemaViewingPage() {
         />
         <input
           type="number"
-          placeholder="Place Quantity"
+          placeholder="Available Seats"
           value={form.PlaceQuantity}
           onChange={(e) => setForm({ ...form, PlaceQuantity: e.target.value })}
           className="p-2 border rounded"
@@ -117,7 +124,7 @@ export default function CinemaViewingPage() {
         />
 
         <button type="submit" className="bg-[#2c5364] text-white py-2 rounded hover:opacity-90">
-          Add Viewing
+          Add Screening
         </button>
       </form>
 
@@ -129,10 +136,10 @@ export default function CinemaViewingPage() {
           >
             <div>
               <p><strong>Movie ID:</strong> {viewing.movieId}</p>
-              <p><strong>Salon Number:</strong> {viewing.salonId}</p>
+              <p><strong>Available Salon:</strong> {viewing.salonId}</p>
               <p><strong>Screening Date and Time:</strong> {new Date(viewing.timeAndDate).toLocaleString()}</p>
               <p><strong>Price:</strong> {viewing.price}</p>
-              <p><strong>Number of Seats:</strong> {viewing.placeQuantity}</p>
+              <p><strong>Available Seats:</strong> {viewing.placeQuantity}</p>
               <p><strong>Premiere:</strong> {viewing.premiere}</p>
             </div>
             <button
@@ -144,14 +151,6 @@ export default function CinemaViewingPage() {
           </li>
         ))}
       </ul>
-
-      <div className="mt-10">
-        <Link href="/">
-          <button className="bg-[#2c5364] text-white py-2 px-4 rounded hover:opacity-90">
-            Back to Home
-          </button>
-        </Link>
-      </div>
     </div>
   );
 }

@@ -72,6 +72,14 @@ export default function MoviePage() {
 
   return (
     <div className="min-h-screen p-8 sm:p-20 bg-white text-black dark:bg-[#121212] dark:text-white">
+      <div className="mb-4">
+        <Link href="/">
+          <button className="bg-[#2c5364] text-white py-2 px-4 rounded hover:opacity-90">
+            Back to Home
+          </button>
+        </Link>
+      </div>
+
       <h1 className="text-2xl font-bold mb-8">Movies</h1>
 
       <form onSubmit={handleSubmit} className="mb-10 grid gap-4 max-w-xl">
@@ -98,6 +106,7 @@ export default function MoviePage() {
               )}
               <div className="flex-1">
                 <p className="font-semibold text-lg">{movie.title}</p>
+                <p><strong>ID:</strong> {movie.id}</p>
                 <p>{movie.description}</p>
                 <p><strong>Genre:</strong> {movie.genre}</p>
                 <p><strong>Age Limit:</strong> {movie.ageLimit}</p>
@@ -113,12 +122,6 @@ export default function MoviePage() {
           </li>
         ))}
       </ul>
-
-      <div className="mt-10">
-        <Link href="/">
-          <button className="bg-[#2c5364] text-white py-2 px-4 rounded hover:opacity-90">Back to Home</button>
-        </Link>
-      </div>
     </div>
   );
 }
